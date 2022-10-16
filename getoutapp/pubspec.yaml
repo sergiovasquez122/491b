@@ -39,6 +39,8 @@ dependencies:
 
   # Stacked
   stacked: ^1.9.0
+  firebase_auth: ^3.11.2
+
 
 dev_dependencies:
   flutter_test:
