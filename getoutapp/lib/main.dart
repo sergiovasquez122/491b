@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getoutapp/ui/login/login_view.dart';
+import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-    
         primarySwatch: Colors.blue,
       ),
-      home: const LoginView(),
+      home: const LoginView(), //CreateAccountView(),
     );
   }
 }
-

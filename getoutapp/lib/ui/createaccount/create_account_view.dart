@@ -1,6 +1,3 @@
-//Currently an exact copy of login_view.dart
-//minor name changes to reflect create account and not login UI
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // new
 
@@ -22,11 +19,11 @@ class _CreateAccountView extends State<CreateAccountView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // title of our app
-                Text('Welcome to Get Out!',
+                Text('Get Started with Get Out!',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
                 SizedBox(height: 10), // for space inbetween
-                Text('Create an account to find events near you!',
+                Text('Create an account to begin browsing events near you!',
                     style: TextStyle(fontSize: 15)),
                 SizedBox(height: 30),
                 // email text field
@@ -45,7 +42,7 @@ class _CreateAccountView extends State<CreateAccountView> {
                   ),
                 ),
                 SizedBox(height: 10),
-                // password text feild
+                // password text field
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
@@ -72,24 +69,25 @@ class _CreateAccountView extends State<CreateAccountView> {
                           color: Colors
                               .grey), // if we want we can curve the borders within the decoration
                       child: Center(
-                          child: Text('Sign In',
+                          child: Text('Create Account',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20))),
                     )),
                 SizedBox(height: 20),
 
+                // Not necessary for Create Account Page
                 // First time? Register Now
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('First time here?'),
-                    Text(' Create account now',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ))
-                  ],
-                )
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Text('First time here?'),
+                //     Text(' Create account now',
+                //         style: TextStyle(
+                //           color: Colors.white,
+                //           fontWeight: FontWeight.bold,
+                //         ))
+                //   ],
+                // )
               ],
             ),
           ),
