@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getoutapp/ui/deleteaccount/delete_account_view.dart';
 import 'package:getoutapp/ui/login/login_view.dart';
 import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginView(), //CreateAccountView(),
+      home: const DeletetAccountView(), //CreateAccountView(),
     );
   }
 }
