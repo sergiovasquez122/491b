@@ -59,19 +59,30 @@ class _LoginView extends State<LoginView> {
                   ),
                 ),
                 SizedBox(height: 10),
-                // sign in button
+
+                // Test Buttonn for sign in
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          color: Colors
-                              .grey), // if we want we can curve the borders within the decoration
-                      child: Center(
-                          child: Text('Sign In',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20))),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/home');
+                      },
+                      child: const Text('Sign in'),
                     )),
+
+                // sign in button
+                // Padding(
+                //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                //     child: Container(
+                //       padding: EdgeInsets.all(15),
+                //       decoration: BoxDecoration(
+                //           color: Colors
+                //               .grey), // if we want we can curve the borders within the decoration
+                //       child: Center(
+                //           child: Text('Sign In',
+                //               style: TextStyle(
+                //                   fontWeight: FontWeight.bold, fontSize: 20))),
+                //     )),
                 SizedBox(height: 20),
                 // create an account button
                 // Padding(
