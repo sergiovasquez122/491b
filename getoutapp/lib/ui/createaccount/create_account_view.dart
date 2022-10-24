@@ -26,7 +26,18 @@ class _CreateAccountView extends State<CreateAccountView> {
                 Text('Create an account to begin browsing events near you!',
                     style: TextStyle(fontSize: 15)),
                 SizedBox(height: 30),
-                // email text field
+                // first name text field
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Text(
+                      'First Name:',
+                      style: TextStyle(fontSize: 15),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
@@ -37,12 +48,82 @@ class _CreateAccountView extends State<CreateAccountView> {
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
                           decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'First name')),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                // last name text field
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Text(
+                      'Last Name:',
+                      style: TextStyle(fontSize: 15),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.teal[50],
+                        border: Border.all(color: Colors.white)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextField(
+                          obscureText:
+                              false, // does not hide text when inputting
+                          decoration: InputDecoration(
+                              border: InputBorder.none, hintText: 'Last Name')),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                // email text field
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Text(
+                      'Email:',
+                      style: TextStyle(fontSize: 15),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.teal[50],
+                        border: Border.all(color: Colors.white)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextField(
+                          obscureText:
+                              false, // does not hide text when inputting
+                          decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'Email')),
                     ),
                   ),
                 ),
                 SizedBox(height: 10),
                 // password text field
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Text(
+                      'Password:',
+                      style: TextStyle(fontSize: 15),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
@@ -59,8 +140,21 @@ class _CreateAccountView extends State<CreateAccountView> {
                     ),
                   ),
                 ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Text(
+                      'Password must contain at least: 8 characters, one uppercase letter, one number.',
+                      style: TextStyle(fontSize: 15),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ),
+
+                // Create Account Finalizer Button
                 SizedBox(height: 10),
-                // sign in button
+                // create account button
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
@@ -75,21 +169,7 @@ class _CreateAccountView extends State<CreateAccountView> {
                     )),
                 SizedBox(height: 20),
 
-                // Not necessary for Create Account Page
-                // First time? Register Now
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Text('First time here?'),
-                //     Text(' Create account now',
-                //         style: TextStyle(
-                //           color: Colors.white,
-                //           fontWeight: FontWeight.bold,
-                //         ))
-                //   ],
-                // )
-
-                // Test Buttonn
+                // Go Back Button
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
@@ -98,7 +178,7 @@ class _CreateAccountView extends State<CreateAccountView> {
                       },
                       child: const Text('Go Back!'),
                     )),
-                // Test Button
+                // Go Back Button
               ],
             ),
           ),
