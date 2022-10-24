@@ -98,7 +98,16 @@ class _LoginView extends State<LoginView> {
                           fontWeight: FontWeight.bold,
                         ))
                   ],
-                )
+                ),
+                // Test Buttonn
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/second');
+                      },
+                      child: const Text('Create an Account'),
+                    )),
               ],
             ),
           ),
