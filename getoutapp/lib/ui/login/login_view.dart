@@ -74,17 +74,27 @@ class _LoginView extends State<LoginView> {
                     )),
                 SizedBox(height: 20),
                 // create an account button
+                // Padding(
+                //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                //     child: Container(
+                //       padding: EdgeInsets.all(15),
+                //       decoration: BoxDecoration(
+                //           color: Colors
+                //               .grey), // if we want we can curve the borders within the decoration
+                //       child: Center(
+                //           child: Text('Create An Account',
+                //               style: TextStyle(
+                //                   fontWeight: FontWeight.bold, fontSize: 20))),
+                //     )),
+
+                // Test Buttonn
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          color: Colors
-                              .grey), // if we want we can curve the borders within the decoration
-                      child: Center(
-                          child: Text('Create An Account',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20))),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/second');
+                      },
+                      child: const Text('Create an Account'),
                     )),
 
                 // First time? Register Now
@@ -99,15 +109,6 @@ class _LoginView extends State<LoginView> {
                         ))
                   ],
                 ),
-                // Test Buttonn
-                Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/second');
-                      },
-                      child: const Text('Create an Account'),
-                    )),
               ],
             ),
           ),
