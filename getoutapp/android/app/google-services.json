@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366229585841",
+    "project_id": "get-out-app-14c42",
+    "storage_bucket": "get-out-app-14c42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366229585841:android:3e38ab44a78dd0cd1fc790",
+        "android_client_info": {
+          "package_name": "com.example.getoutapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366229585841-r1f0k7atnpfq5cpjqpaost2i1eruaoju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG7XDTFedOtpvm0w-u7nrC9qgl09fgFqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366229585841-r1f0k7atnpfq5cpjqpaost2i1eruaoju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
