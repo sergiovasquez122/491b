@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginView(),
         '/second': (context) => const CreateAccountView(),
         '/home': (context) => const HomePageView(),
-        '': (context) => const ResetAccountView(),
+        '/reset': (context) => const ResetAccountView(),
       },
       //home: const LoginView(), //CreateAccountView(),
     );

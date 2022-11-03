@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -21,8 +19,7 @@ class _ResetAccountView extends State<ResetAccountView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 10), // for space inbetween
-                Text('Create an account to begin browsing events near you!',
-                    style: TextStyle(fontSize: 15)),
+                Text('Settings Page', style: TextStyle(fontSize: 15)),
 
                 SizedBox(height: 30),
 
