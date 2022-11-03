@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/second': (context) => const CreateAccountView(),
         '/home': (context) => const HomePageView(),
       },
+      debugShowCheckedModeBanner: false,
       //home: const LoginView(), //CreateAccountView(),
     );
   }
