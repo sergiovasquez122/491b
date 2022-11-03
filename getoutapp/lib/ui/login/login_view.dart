@@ -105,21 +105,21 @@ class _LoginView extends State<LoginView> {
                       onPressed: () {
                         Navigator.pushNamed(context, '/second');
                       },
-                      child: const Text('Create an Account'),
+                      child: const Text('New user? Create an account now'),
                     )),
 
                 // First time? Register Now
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('First time here?'),
-                    Text(' Create account now',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ))
-                  ],
-                ),
+                //Row(
+                  //mainAxisAlignment: MainAxisAlignment.center,
+                  //children: [
+                    //Text('First time here?'),
+                    //Text(' Create account now',
+                        //style: TextStyle(
+                          //color: Colors.white,
+                          //fontWeight: FontWeight.bold,
+                        //))
+                  //],
+                //),
               ],
             ),
           ),
