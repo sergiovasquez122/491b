@@ -81,7 +81,7 @@ class _ResetAccountView extends State<ResetAccountView> {
                     ),
                   ),
                 ),
-
+                SizedBox(height: 10),
                 // confirm new password button
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
