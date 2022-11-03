@@ -12,7 +12,19 @@ class _HomePageView extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.teal[200],
+        backgroundColor: Color.fromARGB(255, 230, 243, 242),
+        // app bar with settings icon
+        appBar: AppBar(
+          title: const Text('Get Out'),
+          backgroundColor:  Colors.teal[200],
+          actions: <Widget> [
+            IconButton(
+              icon: const Icon(Icons.settings),
+              tooltip: 'Settings Icon',
+              onPressed: () {},
+            )
+          ]),
+          
         body: SafeArea(
           child: Center(
             child: Column(
@@ -38,6 +50,7 @@ class _HomePageView extends State<HomePageView> {
               ],
             ),
           ),
-        ));
+        ),
+      );
   }
 }
