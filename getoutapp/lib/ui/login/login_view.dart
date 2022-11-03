@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // new
 
@@ -22,6 +24,7 @@ class _LoginView extends State<LoginView> {
                 Text('Welcome to Get Out!',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
+                // ignore: prefer_const_constructors
                 SizedBox(height: 10), // for space inbetween
                 Text('Please login to find events near you!',
                     style: TextStyle(fontSize: 15)),
@@ -110,15 +113,15 @@ class _LoginView extends State<LoginView> {
 
                 // First time? Register Now
                 //Row(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  //children: [
-                    //Text('First time here?'),
-                    //Text(' Create account now',
-                        //style: TextStyle(
-                          //color: Colors.white,
-                          //fontWeight: FontWeight.bold,
-                        //))
-                  //],
+                //mainAxisAlignment: MainAxisAlignment.center,
+                //children: [
+                //Text('First time here?'),
+                //Text(' Create account now',
+                //style: TextStyle(
+                //color: Colors.white,
+                //fontWeight: FontWeight.bold,
+                //))
+                //],
                 //),
               ],
             ),
