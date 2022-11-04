@@ -9,6 +9,22 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageView extends State<HomePageView> {
+  // our initial selected tab is the explore tab
+  int _selectedTabIndex = 0;
+
+  // we will eventuallty change this to actual Page view widgets 
+  // this defines the content of our pages
+  static const List _navBarTabs = [
+    Text('Explore Page', style:TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
+    Text('Saved Events Page', style:TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
+    Text('Profile Page', style:TextStyle(fontWeight: FontWeight.bold, fontSize: 35))
+  ];
+  // whenever a user clicks on any tab, this func will be called
+  void _onItemTapped(int index){
+    setState(() {
+      _selectedTabIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,22 +36,19 @@ class _HomePageView extends State<HomePageView> {
           actions: <Widget> [
             IconButton(
               icon: const Icon(Icons.settings),
-              tooltip: 'Settings Icon',
+              tooltip: 'Settings',
               onPressed: () {},
             )
           ]),
           
         body: SafeArea(
           child: Center(
-            child: Column(
+            child: 
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // title of our app
-                Text('Welcome to Get Out!',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
-                SizedBox(height: 10), // for space inbetween
-                Text('Find events near you!', style: TextStyle(fontSize: 15)),
+
+                _navBarTabs[_selectedTabIndex],
                 SizedBox(height: 30),
 
                 // Test Buttonn
@@ -51,6 +64,21 @@ class _HomePageView extends State<HomePageView> {
             ),
           ),
         ),
+        // bottom navigation bar 
+        bottomNavigationBar: BottomNavigationBar(
+
+          backgroundColor:  Colors.teal[200],
+          currentIndex: _selectedTabIndex,
+          onTap: _onItemTapped,
+
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search_sharp), label: 'Explore'), //search
+              BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: 'Favorite'), 
+              BottomNavigationBarItem(
+              icon: Icon(Icons.account_box_outlined), label: 'Profile')
+          ]),
       );
   }
 }
