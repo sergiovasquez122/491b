@@ -35,6 +35,16 @@ class _DeletetAccountView extends State<DeletetAccountView> {
                                   fontWeight: FontWeight.bold, fontSize: 20))),
                     )),
                 SizedBox(height: 20),
+
+                // Go Back Button
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context, '/usersettings');
+                      },
+                      child: const Text('Go back to Settings'),
+                    )),
               ],
             ),
           ),

@@ -21,7 +21,7 @@ class _ResetAccountView extends State<ResetAccountView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 10), // for space inbetween
-                Text('Settings Page', style: TextStyle(fontSize: 15)),
+                Text('Reset Password', style: TextStyle(fontSize: 30)),
 
                 SizedBox(height: 30),
 
@@ -104,11 +104,10 @@ class _ResetAccountView extends State<ResetAccountView> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context, '/home');
+                        Navigator.pop(context, '/usersettings');
                       },
-                      child: const Text('Go back to Homepage'),
+                      child: const Text('Go back to Settings'),
                     )),
-                // Test Button
               ],
             ),
           ),

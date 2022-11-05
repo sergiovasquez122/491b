@@ -42,7 +42,7 @@ class _HomePageView extends State<HomePageView> {
               icon: const Icon(Icons.settings),
               tooltip: 'Settings',
               onPressed: () {
-                Navigator.pushNamed(context, '/reset');
+                Navigator.pushNamed(context, '/usersettings');
               },
             )
           ]),
@@ -55,7 +55,7 @@ class _HomePageView extends State<HomePageView> {
               _navBarTabs[_selectedTabIndex],
               SizedBox(height: 30),
 
-              // Test Buttonn
+              // Sign Out Button
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: ElevatedButton(
