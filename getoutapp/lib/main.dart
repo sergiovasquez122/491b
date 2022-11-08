@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:getoutapp/main_pages.dart';
 import 'package:getoutapp/ui/deleteaccount/delete_account_view.dart';
 import 'package:getoutapp/ui/login/login_view.dart';
 import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/second': (context) => const CreateAccountView(),
         '/home': (context) => const HomePageView(),
       },
-      //home: const LoginView(), //CreateAccountView(),
+      home: Main(), //CreateAccountView(),
     );
   }
 }

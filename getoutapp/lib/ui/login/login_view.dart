@@ -9,6 +9,14 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginView extends State<LoginView> {
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email.text.trim(), password: password.text.trim());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +44,7 @@ class _LoginView extends State<LoginView> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
+                          controller: email,
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'Email')),
                     ),
@@ -52,6 +61,7 @@ class _LoginView extends State<LoginView> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
+                          controller: password,
                           obscureText: true, // hides password when inputting
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'Password')),
@@ -110,15 +120,15 @@ class _LoginView extends State<LoginView> {
 
                 // First time? Register Now
                 //Row(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  //children: [
-                    //Text('First time here?'),
-                    //Text(' Create account now',
-                        //style: TextStyle(
-                          //color: Colors.white,
-                          //fontWeight: FontWeight.bold,
-                        //))
-                  //],
+                //mainAxisAlignment: MainAxisAlignment.center,
+                //children: [
+                //Text('First time here?'),
+                //Text(' Create account now',
+                //style: TextStyle(
+                //color: Colors.white,
+                //fontWeight: FontWeight.bold,
+                //))
+                //],
                 //),
               ],
             ),
