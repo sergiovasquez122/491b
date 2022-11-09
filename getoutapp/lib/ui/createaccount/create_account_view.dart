@@ -12,6 +12,7 @@ class _CreateAccountView extends State<CreateAccountView> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  // do not know if this is necessary, but just in case
   @override
   void dispose() {
     _emailController.dispose();
