@@ -38,8 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # Stacked
-  stacked: ^1.9.0
-  firebase_auth: ^3.11.2
+  stacked: ^3.0.0
+  firebase_auth: ^4.1.1
 
 
 dev_dependencies:
