@@ -9,6 +9,24 @@ class CreateAccountView extends StatefulWidget {
 }
 
 class _CreateAccountView extends State<CreateAccountView> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  // do not know if this is necessary, but just in case
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  Future signUp() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,6 +122,7 @@ class _CreateAccountView extends State<CreateAccountView> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
+                          controller: _emailController,
                           obscureText:
                               false, // does not hide text when inputting
                           decoration: InputDecoration(
@@ -135,6 +154,7 @@ class _CreateAccountView extends State<CreateAccountView> {
                       child: TextField(
                           obscureText:
                               false, // does not hide password when inputting
+                          controller: _passwordController,
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'Password')),
                     ),
@@ -156,17 +176,20 @@ class _CreateAccountView extends State<CreateAccountView> {
                 SizedBox(height: 10),
                 // create account button
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          color: Colors
-                              .grey), // if we want we can curve the borders within the decoration
-                      child: Center(
-                          child: Text('Create Account',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20))),
-                    )),
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: GestureDetector(
+                      onTap: signUp,
+                      child: Container(
+                        padding: EdgeInsets.all(15),
+                        decoration: BoxDecoration(color: Colors.grey),
+                        // if we want we can curve the borders within the decoration
+                        child: Center(
+                            child: Text('Create Account',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20))),
+                      )),
+                ),
                 SizedBox(height: 20),
 
                 // Go Back Button
