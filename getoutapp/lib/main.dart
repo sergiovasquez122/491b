@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:getoutapp/firebase_options.dart';
 import 'package:getoutapp/main_pages.dart';
 import 'package:getoutapp/ui/deleteaccount/delete_account_view.dart';
 import 'package:getoutapp/ui/login/login_view.dart';
 import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
+import 'package:getoutapp/ui/resetaccount/reset_account_view.dart';
+import 'package:getoutapp/ui/settingspage/settings_page_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
@@ -27,7 +30,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/second': (context) => const CreateAccountView(),
         '/home': (context) => const HomePageView(),
+        '/reset': (context) => const ResetAccountView(),
+        '/deleteacct': (context) => const DeletetAccountView(),
+        '/usersettings': (context) => const UserSettingsView(),
       },
+      debugShowCheckedModeBanner: false,
       home: Main(), //CreateAccountView(),
     );
   }
