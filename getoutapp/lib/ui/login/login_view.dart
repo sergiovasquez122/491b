@@ -15,8 +15,18 @@ class _LoginView extends State<LoginView> {
   final password = TextEditingController();
 
   Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email.text.trim(), password: password.text.trim());
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email.text.trim(), password: password.text.trim());
+      await Future.delayed(const Duration(seconds: 1));
+      if (mounted) {
+        Navigator.pushNamed(context, '/home');
+      }
+    } on Exception catch (e) {
+      return AlertDialog(
+        content: Text(e.toString()),
+      );
+    }
   }
 
   @override
@@ -77,8 +87,8 @@ class _LoginView extends State<LoginView> {
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/home');
+                      onPressed: () async {
+                        signIn();
                       },
                       child: const Text('Sign in'),
                     )),
