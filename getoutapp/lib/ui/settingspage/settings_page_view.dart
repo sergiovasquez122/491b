@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 
 class UserSettingsView extends StatefulWidget {
   const UserSettingsView({Key? key}) : super(key: key);
@@ -53,7 +54,12 @@ class _UserSettingsView extends State<UserSettingsView> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context, '/home');
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop('/home');
+                        } else {
+                          // Android back button hack
+                          SystemNavigator.pop();
+                        }
                       },
                       child: const Text('Go back to Homepage'),
                     )),

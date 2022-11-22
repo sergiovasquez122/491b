@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // new
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart'; // new
 
 class DeletetAccountView extends StatefulWidget {
   const DeletetAccountView({Key? key}) : super(key: key);
@@ -41,7 +42,12 @@ class _DeletetAccountView extends State<DeletetAccountView> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context, '/usersettings');
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop('/usersettings');
+                        } else {
+                          // Android back button hack
+                          SystemNavigator.pop();
+                        }
                       },
                       child: const Text('Go back to Settings'),
                     )),

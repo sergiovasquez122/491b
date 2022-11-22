@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 
 class ResetAccountView extends StatefulWidget {
   const ResetAccountView({Key? key}) : super(key: key);
@@ -104,7 +105,12 @@ class _ResetAccountView extends State<ResetAccountView> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context, '/usersettings');
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop('/usersettings');
+                        } else {
+                          // Android back button hack
+                          SystemNavigator.pop();
+                        }
                       },
                       child: const Text('Go back to Settings'),
                     )),

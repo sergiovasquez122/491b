@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // new
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart'; // new
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class _HomePageView extends State<HomePageView> {
       _selectedTabIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +63,12 @@ class _HomePageView extends State<HomePageView> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      if (Navigator.of(context).canPop()) {
+                        Navigator.of(context).pop();
+                      } else {
+                        // Android back button hack
+                        SystemNavigator.pop();
+                      }
                       FirebaseAuth.instance.signOut();
                     },
                     child: const Text('Sign out'),

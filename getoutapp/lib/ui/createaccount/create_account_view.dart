@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // new
 
@@ -225,7 +226,12 @@ class _CreateAccountView extends State<CreateAccountView> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop();
+                        } else {
+                          // Android back button hack
+                          SystemNavigator.pop();
+                        }
                       },
                       child: const Text('Go Back!'),
                     )),
