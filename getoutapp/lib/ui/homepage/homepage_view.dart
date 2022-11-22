@@ -30,7 +30,6 @@ class _HomePageView extends State<HomePageView> {
       _selectedTabIndex = index;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
