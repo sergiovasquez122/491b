@@ -205,8 +205,8 @@ class _CreateAccountView extends State<CreateAccountView> {
                 // create account button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: GestureDetector(
-                      onTap: signUp,
+                  child: ElevatedButton(
+                      onPressed: signUp,
                       child: Container(
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(color: Colors.grey),

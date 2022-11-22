@@ -4,7 +4,9 @@ import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
 import 'package:getoutapp/ui/login/login_view.dart';
 
-class Main extends StatelessWidget {
+class MainView extends StatelessWidget {
+  const MainView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

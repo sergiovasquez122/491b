@@ -28,7 +28,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
+      initialRoute: '/',
       routes: {
+        '/': (context) => const MainView(),
         '/second': (context) => const CreateAccountView(),
         '/home': (context) => const HomePageView(),
         '/reset': (context) => const ResetAccountView(),
@@ -36,7 +38,6 @@ class MyApp extends StatelessWidget {
         '/usersettings': (context) => const UserSettingsView(),
       },
       debugShowCheckedModeBanner: false,
-      home: Main(), //CreateAccountView(),
     );
   }
 }
