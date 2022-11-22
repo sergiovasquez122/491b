@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
+import 'package:getoutapp/ui/createEvent/create_event_view.dart';
 import 'package:getoutapp/ui/deleteaccount/delete_account_view.dart';
 import 'package:getoutapp/ui/login/login_view.dart';
 import 'package:getoutapp/ui/createaccount/create_account_view.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       routes: {
-        '/': (context) => const LoginView(),
+        '/': (context) => const LoginView(), // CreateEventView(),
         '/second': (context) => const CreateAccountView(),
         '/home': (context) => const HomePageView(),
         '/reset': (context) => const ResetAccountView(),
