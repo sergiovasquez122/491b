@@ -23,8 +23,13 @@ class _LoginView extends State<LoginView> {
         Navigator.pushNamed(context, '/home');
       }
     } on Exception catch (e) {
-      return AlertDialog(
-        content: Text(e.toString()),
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(e.toString()),
+          );
+        },
       );
     }
   }
