@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/reset': (context) => const ResetAccountView(),
         '/deleteacct': (context) => const DeletetAccountView(),
         '/usersettings': (context) => const UserSettingsView(),
+        '/createEvent': (context) => CreateEventView()
       },
       debugShowCheckedModeBanner: false,
       //home: const LoginView(), //CreateAccountView(),

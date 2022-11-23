@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // new
+import 'package:getoutapp/ui/createEvent/create_event_view.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -31,6 +32,7 @@ class _HomePageView extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Color.fromARGB(255, 230, 243, 242),
       // app bar with settings icon
       appBar: AppBar(
@@ -67,6 +69,13 @@ class _HomePageView extends State<HomePageView> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.create_outlined),
+        tooltip: 'Create Event',
+        onPressed: (){
+          Navigator.pushNamed(context, '/createEvent');
+        }),
       //bottom navigation bar
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.teal[200],
@@ -80,6 +89,7 @@ class _HomePageView extends State<HomePageView> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_box_outlined), label: 'Profile')
           ]),
+
     );
   }
 }
