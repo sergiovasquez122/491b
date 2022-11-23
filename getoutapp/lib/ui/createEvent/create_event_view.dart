@@ -19,7 +19,7 @@ class CreateEventView extends StatefulWidget {
 class _CreateEventViewState extends State<CreateEventView> {
 
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>(); // key is used for validation
 
 
    Widget build(BuildContext context) {
@@ -123,6 +123,12 @@ class _CreateEventViewState extends State<CreateEventView> {
                     )
                   ),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 375.0),
+                child: IconButton(icon: const Icon( Icons.upload_file_outlined),
+                onPressed: (){},
+                tooltip: 'Upload an image',),
               ),
 
               Padding(
