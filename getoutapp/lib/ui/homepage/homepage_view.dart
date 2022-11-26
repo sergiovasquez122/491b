@@ -1,8 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart'; // new
+import 'package:firebase_auth/firebase_auth.dart'; // new
+import 'package:getoutapp/ui/createEvent/create_event_view.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -35,7 +33,7 @@ class _HomePageView extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 230, 243, 242),
+      backgroundColor: const Color.fromARGB(255, 230, 243, 242),
       // app bar with settings icon
       appBar: AppBar(
           title: const Text('Get Out'),
@@ -56,20 +54,14 @@ class _HomePageView extends State<HomePageView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _navBarTabs[_selectedTabIndex],
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Sign Out Button
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      if (Navigator.of(context).canPop()) {
-                        Navigator.of(context).pop();
-                      } else {
-                        // Android back button hack
-                        SystemNavigator.pop();
-                      }
-                      FirebaseAuth.instance.signOut();
+                      Navigator.pop(context);
                     },
                     child: const Text('Sign out'),
                   )),
@@ -77,17 +69,24 @@ class _HomePageView extends State<HomePageView> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+          tooltip: 'Create Event',
+          onPressed: () {
+            Navigator.pushNamed(context, '/createEvent');
+          },
+          child: const Icon(Icons.create_outlined)),
       //bottom navigation bar
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.teal[200],
           currentIndex: _selectedTabIndex,
           onTap: _onItemTapped,
           items: [
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.search_sharp), label: 'Explore'), //search
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.favorite), label: 'Favorite'),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.account_box_outlined), label: 'Profile')
           ]),
     );
