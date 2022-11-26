@@ -5,8 +5,8 @@ void main() {
   runApp(const MyApp());
 }
 
-class EventFavorite extends StatelessWidget {
-  const EventFavorite({super.key});
+class FavoriteEventView extends StatelessWidget {
+  const FavoriteEventView({super.key});
 
   @override
   Widget build(BuildContext context) {
