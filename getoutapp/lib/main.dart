@@ -9,7 +9,7 @@ import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
 import 'package:getoutapp/ui/resetaccount/reset_account_view.dart';
 import 'package:getoutapp/ui/settingspage/settings_page_view.dart';
-import 'package:getoutapp/ui/eventgenerator/favorite_event_view.dart';
+//import 'package:getoutapp/ui/eventgenerator/favorite_event_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         '/deleteacct': (context) => const DeletetAccountView(),
         '/usersettings': (context) => const UserSettingsView(),
         '/loginview': (context) => const LoginView(),
-        '/favoriteevents': (context) => const FavoriteEventView(),
+        // '/favoriteevents': (context) => const RandomWords(),
       },
       debugShowCheckedModeBanner: false,
     );
