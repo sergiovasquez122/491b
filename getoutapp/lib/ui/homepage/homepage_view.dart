@@ -57,6 +57,17 @@ class _HomePageView extends State<HomePageView> {
               _navBarTabs[_selectedTabIndex],
               SizedBox(height: 30),
 
+              // Button For Favorite Events
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/favoriteevents');
+                    },
+                    child: const Text('Events Page'),
+                  )),
+              SizedBox(height: 20),
+
               // Sign Out Button
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -65,16 +76,6 @@ class _HomePageView extends State<HomePageView> {
                       Navigator.pushNamed(context, '/');
                     },
                     child: const Text('Sign out'),
-                  )),
-              SizedBox(height: 20),
-              // Button For Favorite Events
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/favoriteevents');
-                    },
-                    child: const Text('Favorite Events'),
                   )),
             ],
           ),
