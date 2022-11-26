@@ -62,9 +62,19 @@ class _HomePageView extends State<HomePageView> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/loginview');
+                      Navigator.pushNamed(context, '/');
                     },
                     child: const Text('Sign out'),
+                  )),
+              SizedBox(height: 20),
+              // Button For Favorite Events
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/favoriteevents');
+                    },
+                    child: const Text('Favorite Events'),
                   )),
             ],
           ),
