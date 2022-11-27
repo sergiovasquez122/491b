@@ -10,7 +10,7 @@ import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
 import 'package:getoutapp/ui/resetaccount/reset_account_view.dart';
 import 'package:getoutapp/ui/settingspage/settings_page_view.dart';
-import 'package:getoutapp/ui/eventgenerator/favorite_event_view.dart';
+import 'package:getoutapp/ui/eventgenerator/favorite_event_view3.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {

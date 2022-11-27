@@ -1,6 +1,6 @@
 import 'dart:html';
 
-import 'package:english_words/english_words.dart';
+//import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 class Events {
@@ -17,8 +17,8 @@ class RandomWords extends StatefulWidget {
 }
 
 class _RandomWordsState extends State<RandomWords> {
-  final _suggestions = <Events>[];
-  final _saved = <Events>{};
+  // final _suggestions = <Events>[];
+  // final _saved = <Events>{};
   final _biggerFont = const TextStyle(fontSize: 18);
   // final _events = [
   //   'Hiking',
@@ -38,7 +38,16 @@ class _RandomWordsState extends State<RandomWords> {
     'Football',
     'Biking',
     'Scooter',
+    'Hiking',
+    'Basketball',
+    'Baseball',
+    'Soccer',
+    'Football',
+    'Biking',
+    'Scooter'
   ];
+
+  final List<String> savedEvents = <String>[];
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +70,11 @@ class _RandomWordsState extends State<RandomWords> {
           if (i.isOdd) return const Divider();
 
           final index = i;
-          // if (index >= _suggestions.length) {
+          // if (index >= eventNames.length) {
           //   _suggestions.addAll(generateWordPairs().take(10));
           // }
 
-          final alreadySaved = _saved.contains(eventNames[index]);
+          final alreadySaved = savedEvents.contains(eventNames[index]);
 
           return ListTile(
             title: Text(
@@ -81,9 +90,9 @@ class _RandomWordsState extends State<RandomWords> {
             onTap: () {
               setState(() {
                 if (alreadySaved) {
-                  _saved.remove(eventNames[index]);
+                  savedEvents.remove(eventNames[index]);
                 } else {
-                  _saved.add(_suggestions[index]);
+                  savedEvents.add(eventNames[index]);
                 }
               });
             },
@@ -97,7 +106,7 @@ class _RandomWordsState extends State<RandomWords> {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (context) {
-          final tiles = _saved.map(
+          final tiles = savedEvents.map(
             (pair) {
               return ListTile(
                 title: Text(
