@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:getoutapp/ui/eventgenerator/favorite_event_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // new
@@ -19,8 +20,7 @@ class _HomePageView extends State<HomePageView> {
   static const List _navBarTabs = [
     Text('Explore Page',
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
-    Text('Saved Events Page',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
+    RandomWords(),
     Text('Profile Page',
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35))
   ];
@@ -28,12 +28,27 @@ class _HomePageView extends State<HomePageView> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedTabIndex = index;
+      if (index == 0)
+        [
+          Navigator.pushNamed(context, '/[insertname]'),
+        ];
+      if (index == 1)
+        [
+          Navigator.pushNamed(context, '/favoriteevents'),
+        ];
+      if (index == 1)
+        [
+          Navigator.pushNamed(context, '/[insertname]'),
+        ];
+      else
+        [Navigator.pushNamed(context, '/home')];
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 230, 243, 242),
       // app bar with settings icon
       appBar: AppBar(
@@ -51,33 +66,35 @@ class _HomePageView extends State<HomePageView> {
 
       body: SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _navBarTabs[_selectedTabIndex],
-              SizedBox(height: 30),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _navBarTabs[_selectedTabIndex],
+                SizedBox(height: 30),
 
-              // Button For Favorite Events
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/favoriteevents');
-                    },
-                    child: const Text('Events Page'),
-                  )),
-              SizedBox(height: 20),
+                // Button For Favorite Events
+                // Padding(
+                //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                //     child: ElevatedButton(
+                //       onPressed: () {
+                //         Navigator.pushNamed(context, '/favoriteevents');
+                //       },
+                //       child: const Text('Events Page'),
+                //     )),
+                // SizedBox(height: 20),
 
-              // Sign Out Button
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/');
-                    },
-                    child: const Text('Sign out'),
-                  )),
-            ],
+                // Sign Out Button
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/');
+                      },
+                      child: const Text('Sign out'),
+                    )),
+              ],
+            ),
           ),
         ),
       ),
