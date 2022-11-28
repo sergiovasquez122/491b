@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-import 'package:getoutapp/ui/eventgenerator/favorite_event_view2.dart';
+
+import 'package:getoutapp/ui/createEvent/view_event.dart'; // new
+import 'package:firebase_auth/firebase_auth.dart'; // new
+import 'package:getoutapp/ui/createEvent/create_event_view.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:getoutapp/ui/eventgenerator/favorite_event_view3.dart';
 
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:getoutapp/ui/createEvent/view_event.dart'; // new
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -50,8 +53,9 @@ class _HomePageView extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 230, 243, 242),
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromARGB(255, 230, 243, 242),
+
       // app bar with settings icon
       appBar: AppBar(
           title: const Text('Get Out'),
