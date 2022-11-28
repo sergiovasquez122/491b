@@ -54,7 +54,7 @@ class _RandomWordsState extends State<RandomWords> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Event Generator'),
+        title: const Text('Which events are your fav?'),
         actions: [
           IconButton(
             icon: const Icon(Icons.list),
