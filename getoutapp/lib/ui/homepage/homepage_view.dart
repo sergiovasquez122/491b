@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../read data/get_event_data.dart'; // new
 import 'package:getoutapp/ui/createEvent/create_event_view.dart';
+import 'package:getoutapp/ui/profilepage/profile_page_view.dart'; // new
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -22,13 +23,12 @@ class _HomePageView extends State<HomePageView> {
 
   // we will eventuallty change this to actual Page view widgets
   // this defines the content of our pages
-  static const List _navBarTabs = [
+  static List _navBarTabs = [
     // Text('Explore Page',
     //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
     ViewEvent(),
     RandomWords(),
-    Text('Profile Page',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35))
+    ProfilePageView()
   ];
   // whenever a user clicks on any tab, this func will be called
   void _onItemTapped(int index) {
@@ -48,6 +48,19 @@ class _HomePageView extends State<HomePageView> {
       //   ];
       // else
       //   [Navigator.pushNamed(context, '/home')];
+      // if (index == 2)
+      //   [
+      //     Navigator.pushNamed(context, '/profile'),
+      //   ];
+      // else
+      //   [Navigator.pushNamed(context, '/home')];
+      // if(index == 0){
+      //   Navigator.pushNamed(context, '/[insertname]');
+      // }else if(index == 1){
+      //   Navigator.pushNamed(context, '/favoriteevents');
+      // }else if( index == 2){
+      //   Navigator.pushNamed(context, '/profile');
+      // }
     });
   }
 
@@ -130,6 +143,13 @@ class _HomePageView extends State<HomePageView> {
       //   ),
       // ),
 
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+          tooltip: 'Create Event',
+          onPressed: () {
+            Navigator.pushNamed(context, '/createEvent');
+          },
+          child: const Icon(Icons.create_outlined)),
       //bottom navigation bar
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.teal[200],

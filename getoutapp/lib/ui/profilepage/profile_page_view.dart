@@ -17,7 +17,7 @@ class _ProfilePageViewState extends State<ProfilePageView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 230, 243, 242),
-      appBar: AppBar(backgroundColor: Colors.teal[200]),
+      //appBar: AppBar(backgroundColor: Colors.teal[200]),
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
