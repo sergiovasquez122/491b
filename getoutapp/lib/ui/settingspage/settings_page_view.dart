@@ -26,6 +26,17 @@ class _UserSettingsView extends State<UserSettingsView> {
 
                 SizedBox(height: 30),
 
+                // Sign Out Button
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/loginview');
+                      },
+                      child: const Text('Sign out'),
+                    )),
+                SizedBox(height: 10),
+
                 // Button to Access Delete Account
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
