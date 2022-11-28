@@ -1,4 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // new
 
 class CreateAccountView extends StatefulWidget {
@@ -21,10 +25,21 @@ class _CreateAccountView extends State<CreateAccountView> {
   }
 
   Future signUp() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+    } on Exception catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(e.toString()),
+          );
+        },
+      );
+    }
   }
 
   @override
@@ -172,13 +187,27 @@ class _CreateAccountView extends State<CreateAccountView> {
                   ),
                 ),
 
+                // new FlutterPwValidator(
+                //     controller: controller,
+                //     minLength: 8,
+                //     uppercaseCharCount: 2,
+                //     numericCharCount: 3,
+                //     specialCharCount: 1,
+                //     width: 400,
+                //     height: 150,
+                //     onSuccess: () {
+                //       print("Matched");
+                //       Scaffold.of(context).showSnackBar(new SnackBar(
+                //           content: new Text("Password is matched")));
+                //     }),
+
                 // Create Account Finalizer Button
                 SizedBox(height: 10),
                 // create account button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: GestureDetector(
-                      onTap: signUp,
+                  child: ElevatedButton(
+                      onPressed: signUp,
                       child: Container(
                         padding: EdgeInsets.all(15),
                         decoration: BoxDecoration(color: Colors.grey),
@@ -197,7 +226,12 @@ class _CreateAccountView extends State<CreateAccountView> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        if (Navigator.of(context).canPop()) {
+                          Navigator.of(context).pop();
+                        } else {
+                          // Android back button hack
+                          SystemNavigator.pop();
+                        }
                       },
                       child: const Text('Go Back!'),
                     )),

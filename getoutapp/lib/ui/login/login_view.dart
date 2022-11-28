@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // new
 
@@ -9,6 +11,29 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginView extends State<LoginView> {
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+  Future signIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email.text.trim(), password: password.text.trim());
+      await Future.delayed(const Duration(seconds: 1));
+      if (mounted) {
+        Navigator.pushNamed(context, '/home');
+      }
+    } on Exception catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(e.toString()),
+          );
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +47,7 @@ class _LoginView extends State<LoginView> {
                 Text('Welcome to Get Out!',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
+                // ignore: prefer_const_constructors
                 SizedBox(height: 10), // for space inbetween
                 Text('Please login to find events near you!',
                     style: TextStyle(fontSize: 15)),
@@ -36,6 +62,7 @@ class _LoginView extends State<LoginView> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
+                          controller: email,
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'Email')),
                     ),
@@ -52,6 +79,7 @@ class _LoginView extends State<LoginView> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
+                          controller: password,
                           obscureText: true, // hides password when inputting
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'Password')),
@@ -64,8 +92,8 @@ class _LoginView extends State<LoginView> {
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/home');
+                      onPressed: () async {
+                        signIn();
                       },
                       child: const Text('Sign in'),
                     )),
@@ -110,15 +138,15 @@ class _LoginView extends State<LoginView> {
 
                 // First time? Register Now
                 //Row(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  //children: [
-                    //Text('First time here?'),
-                    //Text(' Create account now',
-                        //style: TextStyle(
-                          //color: Colors.white,
-                          //fontWeight: FontWeight.bold,
-                        //))
-                  //],
+                //mainAxisAlignment: MainAxisAlignment.center,
+                //children: [
+                //Text('First time here?'),
+                //Text(' Create account now',
+                //style: TextStyle(
+                //color: Colors.white,
+                //fontWeight: FontWeight.bold,
+                //))
+                //],
                 //),
               ],
             ),
