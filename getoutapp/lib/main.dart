@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/loginview',
       routes: {
         '/': (context) => const MainView(),
-        '/viewevent': (context) => ViewEvent(),
         '/second': (context) => const CreateAccountView(),
         '/home': (context) => const HomePageView(),
         '/reset': (context) => const ResetAccountView(),
@@ -45,6 +44,7 @@ class MyApp extends StatelessWidget {
         '/createEvent': (context) => CreateEventView(),
         '/loginview': (context) => const LoginView(),
         '/favoriteevents': (context) => const RandomWords(),
+        '/viewevent': (context) => const ViewEvent(),
       },
       debugShowCheckedModeBanner: false,
     );
