@@ -15,6 +15,8 @@ import 'package:getoutapp/ui/resetaccount/reset_account_view.dart';
 import 'package:getoutapp/ui/settingspage/settings_page_view.dart';
 import 'package:getoutapp/ui/eventgenerator/favorite_event_view3.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:getoutapp/ui/profilepage/profile_page_view.dart';
+import 'package:getoutapp/ui/profilepage/edit_profile_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +47,8 @@ class MyApp extends StatelessWidget {
         '/loginview': (context) => const LoginView(),
         '/favoriteevents': (context) => const RandomWords(),
         '/viewevent': (context) => const ViewEvent(),
+        '/profile': (context) => ProfilePageView(),
+        '/editprofile': (context) => EditProfileView()
       },
       debugShowCheckedModeBanner: false,
     );

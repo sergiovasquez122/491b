@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../read data/get_event_data.dart'; // new
+import 'package:getoutapp/ui/createEvent/create_event_view.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);

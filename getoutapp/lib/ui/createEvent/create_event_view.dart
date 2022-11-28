@@ -26,6 +26,7 @@ class _CreateEventViewState extends State<CreateEventView> {
   }
 
   final event = TextEditingController();
+  //GlobalKey<FormState> formKey = GlobalKey<FormState>(); // key is used for validation
 
   final description = TextEditingController();
 
