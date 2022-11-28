@@ -8,6 +8,7 @@ import 'package:getoutapp/ui/deleteaccount/delete_account_view.dart';
 import 'package:getoutapp/ui/login/login_view.dart';
 import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
+import 'package:getoutapp/ui/profilepage/profile_page_view.dart';
 import 'package:getoutapp/ui/resetaccount/reset_account_view.dart';
 import 'package:getoutapp/ui/settingspage/settings_page_view.dart';
 import 'package:getoutapp/ui/eventgenerator/favorite_event_view3.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/loginview',
       routes: {
         '/': (context) => const MainView(),
-        '/second': (context) => const CreateAccountView(),
+        '/second': (context) => const CreateAccountView(), 
         '/home': (context) => const HomePageView(),
         '/reset': (context) => const ResetAccountView(),
         '/deleteacct': (context) => const DeletetAccountView(),
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/createEvent': (context) => CreateEventView(),
         '/loginview': (context) => const LoginView(),
         '/favoriteevents': (context) => const RandomWords(),
+        '/profile': (context) => ProfilePageView()
       },
       debugShowCheckedModeBanner: false,
     );

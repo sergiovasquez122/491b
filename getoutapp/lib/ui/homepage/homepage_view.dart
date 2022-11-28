@@ -5,7 +5,8 @@ import 'package:getoutapp/ui/createEvent/create_event_view.dart';
 import 'package:getoutapp/ui/eventgenerator/favorite_event_view3.dart';
 
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // new
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:getoutapp/ui/profilepage/profile_page_view.dart'; // new
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -20,31 +21,39 @@ class _HomePageView extends State<HomePageView> {
 
   // we will eventuallty change this to actual Page view widgets
   // this defines the content of our pages
-  static const List _navBarTabs = [
+  // removed const
+  static List _navBarTabs = [
     Text('Explore Page',
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
     RandomWords(),
-    Text('Profile Page',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35))
+    ProfilePageView()
   ];
   // whenever a user clicks on any tab, this func will be called
   void _onItemTapped(int index) {
     setState(() {
       _selectedTabIndex = index;
-      if (index == 0)
-        [
-          Navigator.pushNamed(context, '/[insertname]'),
-        ];
-      if (index == 1)
-        [
-          Navigator.pushNamed(context, '/favoriteevents'),
-        ];
-      if (index == 1)
-        [
-          Navigator.pushNamed(context, '/[insertname]'),
-        ];
-      else
-        [Navigator.pushNamed(context, '/home')];
+      // if (index == 0)
+      //   [
+      //     Navigator.pushNamed(context, '/[insertname]'),
+      //   ];
+      // if (index == 1)
+      //   [
+      //     Navigator.pushNamed(context, '/favoriteevents'),
+      //   ];
+      // if (index == 2)
+      //   [
+      //     Navigator.pushNamed(context, '/profile'),
+      //   ];
+      // else
+      //   [Navigator.pushNamed(context, '/home')];
+      // if(index == 0){
+      //   Navigator.pushNamed(context, '/[insertname]');
+      // }else if(index == 1){
+      //   Navigator.pushNamed(context, '/favoriteevents');
+      // }else if( index == 2){
+      //   Navigator.pushNamed(context, '/profile');
+      // }
+
     });
   }
 
@@ -68,40 +77,46 @@ class _HomePageView extends State<HomePageView> {
             )
           ]),
 
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _navBarTabs[_selectedTabIndex],
-                SizedBox(height: 30),
+      body: 
+      _navBarTabs[_selectedTabIndex],
 
-                // Button For Favorite Events
-                // Padding(
-                //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                //     child: ElevatedButton(
-                //       onPressed: () {
-                //         Navigator.pushNamed(context, '/favoriteevents');
-                //       },
-                //       child: const Text('Events Page'),
-                //     )),
-                // SizedBox(height: 20),
+      // SafeArea(
+        
+      //   child: Center(
+      //     child: SingleChildScrollView(
+      //       child: Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           //_navBarTabs[_selectedTabIndex],
+      //           SizedBox(height: 30),
 
-                // Sign Out Button
-                Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/');
-                      },
-                      child: const Text('Sign out'),
-                    )),
-              ],
-            ),
-          ),
-        ),
-      ),
+      //           // Button For Favorite Events
+      //           // Padding(
+      //           //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
+      //           //     child: ElevatedButton(
+      //           //       onPressed: () {
+      //           //         Navigator.pushNamed(context, '/favoriteevents');
+      //           //       },
+      //           //       child: const Text('Events Page'),
+      //           //     )),
+      //           // SizedBox(height: 20),
+
+      //           // Sign Out Button
+      //           Padding(
+      //               padding: const EdgeInsets.symmetric(horizontal: 25.0),
+      //               child: ElevatedButton(
+      //                 onPressed: () {
+      //                   Navigator.pushNamed(context, '/');
+      //                 },
+      //                 child: const Text('Sign out'),
+      //               )),
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      
+   
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
           tooltip: 'Create Event',
