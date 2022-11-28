@@ -42,14 +42,20 @@ class _LoginView extends State<LoginView> {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+
               children: [
+                Icon(
+                  Icons.location_on_outlined,
+                  size: 100
+                ),
+                SizedBox(height: 35),
                 // title of our app
-                Text('Welcome to Get Out!',
+                Text('Welcome to Step Out!',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
                 // ignore: prefer_const_constructors
                 SizedBox(height: 10), // for space inbetween
-                Text('Please login to find events near you!',
+                Text('Login to find events near you!',
                     style: TextStyle(fontSize: 15)),
                 SizedBox(height: 30),
                 // email text feild
@@ -58,7 +64,10 @@ class _LoginView extends State<LoginView> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
-                        border: Border.all(color: Colors.white)),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12)
+                        ),
+              
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
@@ -75,7 +84,9 @@ class _LoginView extends State<LoginView> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
-                        border: Border.all(color: Colors.white)),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12)
+                        ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
