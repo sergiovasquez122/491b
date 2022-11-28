@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:getoutapp/firebase_options.dart';
 import 'package:getoutapp/main_pages.dart';
@@ -9,6 +10,7 @@ import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
 import 'package:getoutapp/ui/resetaccount/reset_account_view.dart';
 import 'package:getoutapp/ui/settingspage/settings_page_view.dart';
+import 'package:getoutapp/ui/eventgenerator/favorite_event_view3.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      initialRoute: '/',
+      initialRoute: '/loginview',
       routes: {
         '/': (context) => const MainView(),
         '/second': (context) => const CreateAccountView(),
@@ -36,7 +38,9 @@ class MyApp extends StatelessWidget {
         '/reset': (context) => const ResetAccountView(),
         '/deleteacct': (context) => const DeletetAccountView(),
         '/usersettings': (context) => const UserSettingsView(),
-        '/createEvent': (context) => CreateEventView()
+        '/createEvent': (context) => CreateEventView(),
+        '/loginview': (context) => const LoginView(),
+        '/favoriteevents': (context) => const RandomWords(),
       },
       debugShowCheckedModeBanner: false,
     );
