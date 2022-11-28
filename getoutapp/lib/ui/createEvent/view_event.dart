@@ -64,7 +64,9 @@ Future getEventID() async {
       .collection('events')
       .get()
       .then(((snapshot) => snapshot.docs.forEach((document) {
-            print(document.reference);
-            eventIDs.add(document.reference.id);
+            if (!eventIDs.contains(document.reference.id)) {
+              print(document.reference);
+              eventIDs.add(document.reference.id);
+            }
           })));
 }
