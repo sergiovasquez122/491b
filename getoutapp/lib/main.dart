@@ -7,6 +7,8 @@ import 'package:getoutapp/ui/createaccount/create_account_view.dart';
 import 'package:getoutapp/ui/homepage/homepage_view.dart';
 import 'package:getoutapp/ui/resetaccount/reset_account_view.dart';
 import 'package:getoutapp/ui/settingspage/settings_page_view.dart';
+import 'package:getoutapp/ui/profilepage/profile_page_view.dart';
+import 'package:getoutapp/ui/profilepage/edit_profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget {
         '/reset': (context) => const ResetAccountView(),
         '/deleteacct': (context) => const DeletetAccountView(),
         '/usersettings': (context) => const UserSettingsView(),
-        '/createEvent': (context) => CreateEventView()
+        '/createEvent': (context) => CreateEventView(),
+        '/profile': (context) => ProfilePageView(),
+        '/editprofile': (context) => EditProfileView()
       },
       debugShowCheckedModeBanner: false,
       //home: const LoginView(), //CreateAccountView(),
