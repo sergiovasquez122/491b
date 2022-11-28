@@ -25,6 +25,16 @@ class _UserSettingsView extends State<UserSettingsView> {
                 Text('Settings Page', style: TextStyle(fontSize: 30)),
 
                 SizedBox(height: 30),
+                 
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/loginview');
+                      },
+                      child: const Text('Sign out'),
+                    )),
+                SizedBox(height: 10),
 
                 // Button to Access Delete Account
                 Padding(
