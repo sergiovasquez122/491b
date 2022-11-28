@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getoutapp/model/user.dart';
 import 'package:getoutapp/utils/user_preferences.dart';
 
+//edit profile ui
 class EditProfileView extends StatefulWidget {
   EditProfileView({Key? key}) : super(key: key);
 
@@ -21,6 +22,7 @@ class _EditProfileViewState extends State<EditProfileView> {
         physics: BouncingScrollPhysics(),
         children: [
           ProfileWidget(
+            //profile picture
             imagePath: user.imagePath,
             isEdit: true,
             onClicked: () async {},

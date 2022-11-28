@@ -3,6 +3,7 @@ import 'package:getoutapp/model/user.dart';
 import 'package:getoutapp/utils/user_preferences.dart';
 import 'package:getoutapp/ui/profilepage/edit_profile_page.dart';
 
+//main profile ui
 class ProfilePageView extends StatefulWidget {
   ProfilePageView({Key? key}) : super(key: key);
 
@@ -22,7 +23,9 @@ class _ProfilePageViewState extends State<ProfilePageView> {
         children: [
           SizedBox(height: 10),
           ProfileWidget(
+            //profile picture
             imagePath: user.imagePath,
+            //edit profile
             onClicked: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => EditProfileView()),
@@ -30,9 +33,9 @@ class _ProfilePageViewState extends State<ProfilePageView> {
             },
           ),
           const SizedBox(height: 24),
-          buildName(user),
+          buildName(user), //name & email
           const SizedBox(height: 48),
-          buildAbout(user),
+          buildAbout(user), //location and bio
         ],
       ),
     );
