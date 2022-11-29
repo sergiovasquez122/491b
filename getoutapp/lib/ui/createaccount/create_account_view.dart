@@ -52,7 +52,7 @@ class _CreateAccountView extends State<CreateAccountView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // title of our app
-                Text('Get Started with Get Out!',
+                Text('Get Started with Step Out!',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
                 SizedBox(height: 10), // for space inbetween
@@ -64,11 +64,11 @@ class _CreateAccountView extends State<CreateAccountView> {
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30.0),
-                    child: Text(
-                      'First Name:',
-                      style: TextStyle(fontSize: 15),
-                      textAlign: TextAlign.left,
-                    ),
+                    // child: Text(
+                    //   'First Name:',
+                    //   style: TextStyle(fontSize: 15),
+                    //   textAlign: TextAlign.left,
+                    // ),
                   ),
                 ),
                 Padding(
@@ -76,7 +76,8 @@ class _CreateAccountView extends State<CreateAccountView> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
-                        border: Border.all(color: Colors.white)),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12)),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
@@ -86,17 +87,17 @@ class _CreateAccountView extends State<CreateAccountView> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 // last name text field
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30.0),
-                    child: Text(
-                      'Last Name:',
-                      style: TextStyle(fontSize: 15),
-                      textAlign: TextAlign.left,
-                    ),
+                    // child: Text(
+                    //   'Last Name:',
+                    //   style: TextStyle(fontSize: 15),
+                    //   textAlign: TextAlign.left,
+                    // ),
                   ),
                 ),
                 Padding(
@@ -104,7 +105,9 @@ class _CreateAccountView extends State<CreateAccountView> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
-                        border: Border.all(color: Colors.white)),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12)
+                        ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
@@ -115,17 +118,17 @@ class _CreateAccountView extends State<CreateAccountView> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 // email text field
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30.0),
-                    child: Text(
-                      'Email:',
-                      style: TextStyle(fontSize: 15),
-                      textAlign: TextAlign.left,
-                    ),
+                    // child: Text(
+                    //   'Email:',
+                    //   style: TextStyle(fontSize: 15),
+                    //   textAlign: TextAlign.left,
+                    // ),
                   ),
                 ),
                 Padding(
@@ -133,7 +136,9 @@ class _CreateAccountView extends State<CreateAccountView> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
-                        border: Border.all(color: Colors.white)),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12)
+                        ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
@@ -145,17 +150,13 @@ class _CreateAccountView extends State<CreateAccountView> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 // password text field
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30.0),
-                    child: Text(
-                      'Password:',
-                      style: TextStyle(fontSize: 15),
-                      textAlign: TextAlign.left,
-                    ),
+
                   ),
                 ),
                 Padding(
@@ -163,7 +164,9 @@ class _CreateAccountView extends State<CreateAccountView> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
-                        border: Border.all(color: Colors.white)),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12)
+                        ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
@@ -181,7 +184,7 @@ class _CreateAccountView extends State<CreateAccountView> {
                     padding: const EdgeInsets.only(left: 30.0),
                     child: Text(
                       'Password must contain at least: 8 characters, one uppercase letter, one number.',
-                      style: TextStyle(fontSize: 15),
+                      style: TextStyle(fontSize: 10),
                       textAlign: TextAlign.left,
                     ),
                   ),
