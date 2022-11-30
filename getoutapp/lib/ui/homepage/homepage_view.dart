@@ -71,6 +71,7 @@ class _HomePageView extends State<HomePageView> {
       backgroundColor: Color.fromARGB(255, 230, 243, 242),
       // app bar with settings icon
       appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text('Step Out'),
           backgroundColor: Colors.teal[200],
           actions: <Widget>[

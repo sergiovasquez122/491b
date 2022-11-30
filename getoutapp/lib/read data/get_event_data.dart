@@ -25,10 +25,31 @@ class GetEventData extends StatelessWidget {
             //   eventID: eventID,
             // ));
             return ListTile(
-                title: Text('${data['name']}' +
-                    ': ' +
-                    '${data['time'].toDate()}' +
-                    '\n${data['description']}'),
+                title: RichText(
+                  text: TextSpan(
+                    text: '${data['name']}',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '\n${data['description']}',
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.italic)),
+                      TextSpan(
+                          text: '\nDate & Time: ' + '${data['time'].toDate()}',
+                          style: TextStyle(
+                              fontSize: 17.0, fontWeight: FontWeight.normal)),
+                    ],
+                  ),
+                ),
+
+                //Text('${data['name']}' +
+                //    '${data['time'].toDate()}' +
+                //    '\n${data['description']}'),
                 subtitle: Image(
                     image: NetworkImage(data['image']),
                     width: 300,

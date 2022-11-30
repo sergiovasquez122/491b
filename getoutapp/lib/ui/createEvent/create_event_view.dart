@@ -138,7 +138,7 @@ class _CreateEventViewState extends State<CreateEventView> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
+                    padding: const EdgeInsets.only(left: 250.0),
                     child: IconButton(
                       icon: const Icon(Icons.upload_file_outlined),
                       onPressed: () async {
