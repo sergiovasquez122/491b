@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
-
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class CreateEventView extends StatefulWidget {
   const CreateEventView({Key? key}) : super(key: key);
@@ -19,9 +20,10 @@ class _CreateEventViewState extends State<CreateEventView> {
 
   Future createEvent() async {
     await FirebaseFirestore.instance.collection("events").add({
-      "name": event.text.trim(),
-      "description": description.text.trim(),
-      "time": DateTime.parse(date.text.trim() + " " + time.text.trim())
+      'name': event.text.trim(),
+      'description': description.text.trim(),
+      'time': DateTime.parse(date.text.trim() + " " + time.text.trim()),
+      'image': imageUrl,
     });
   }
 
@@ -33,6 +35,8 @@ class _CreateEventViewState extends State<CreateEventView> {
   final date = TextEditingController();
 
   final time = TextEditingController();
+
+  String imageUrl = '';
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,10 +138,35 @@ class _CreateEventViewState extends State<CreateEventView> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 375.0),
+                    padding: const EdgeInsets.only(left: 10.0),
                     child: IconButton(
                       icon: const Icon(Icons.upload_file_outlined),
-                      onPressed: () {},
+                      onPressed: () async {
+                        ImagePicker imagePicker = ImagePicker();
+                        XFile? file = await imagePicker.pickImage(
+                            source: ImageSource.gallery);
+                        //print('${file?.path}');
+                        if (file == null) return;
+
+                        String uniqueFileName =
+                            DateTime.now().millisecondsSinceEpoch.toString();
+
+                        Reference referenceRoot =
+                            FirebaseStorage.instance.ref();
+                        Reference referenceDirImages =
+                            referenceRoot.child('images');
+                        Reference referenceImageToUpload =
+                            referenceDirImages.child(uniqueFileName);
+
+                        try {
+                          await referenceImageToUpload
+                              .putFile(File(file.path)); //Store the file
+                          imageUrl = await referenceImageToUpload
+                              .getDownloadURL(); //Success: get the download URL
+                        } catch (error) {
+                          //Some error occurred
+                        }
+                      },
                       tooltip: 'Upload an image',
                     ),
                   ),

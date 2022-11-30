@@ -24,10 +24,16 @@ class GetEventData extends StatelessWidget {
             // print(GetEventName(
             //   eventID: eventID,
             // ));
-            return Text('${data['name']}' +
-                ': ' +
-                '${data['time'].toDate()}' +
-                '\n${data['description']}');
+            return ListTile(
+                title: Text('${data['name']}' +
+                    ': ' +
+                    '${data['time'].toDate()}' +
+                    '\n${data['description']}'),
+                subtitle: Image(
+                    image: NetworkImage(data['image']),
+                    width: 300,
+                    height: 150,
+                    fit: BoxFit.fitWidth));
           }
           return Text('loading...');
         }));
