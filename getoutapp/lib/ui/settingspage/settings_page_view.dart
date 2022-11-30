@@ -22,10 +22,10 @@ class _UserSettingsView extends State<UserSettingsView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 10), // for space inbetween
-                Text('Settings Page', style: TextStyle(fontSize: 30)),
+                Text('Settings', style: TextStyle(fontSize: 30)),
 
                 SizedBox(height: 30),
-                 
+
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: ElevatedButton(
