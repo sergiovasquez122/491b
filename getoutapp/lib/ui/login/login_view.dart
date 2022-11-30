@@ -37,17 +37,14 @@ class _LoginView extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.teal[200],
         body: SafeArea(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-
               children: [
-                Icon(
-                  Icons.location_on_outlined,
-                  size: 100
-                ),
+                Icon(Icons.location_on_outlined, size: 100),
                 SizedBox(height: 35),
                 // title of our app
                 Text('Welcome to Step Out!',
@@ -65,9 +62,7 @@ class _LoginView extends State<LoginView> {
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
                         border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12)
-                        ),
-              
+                        borderRadius: BorderRadius.circular(12)),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(
@@ -85,8 +80,7 @@ class _LoginView extends State<LoginView> {
                     decoration: BoxDecoration(
                         color: Colors.teal[50],
                         border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12)
-                        ),
+                        borderRadius: BorderRadius.circular(12)),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextField(

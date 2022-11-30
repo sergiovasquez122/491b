@@ -52,6 +52,7 @@ class _RandomWordsState extends State<RandomWords> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Which events are your fav?'),
         actions: [
           IconButton(
