@@ -23,7 +23,8 @@ class _CreateEventViewState extends State<CreateEventView> {
       'name': event.text.trim(),
       'description': description.text.trim(),
       'time': DateTime.parse(date.text.trim() + " " + time.text.trim()),
-      'image': imageUrl,
+      'image':
+          'https://firebasestorage.googleapis.com/v0/b/get-out-app-14c42.appspot.com/o/image2022-11-29%2022%3A59%3A26.378432?alt=media&token=7c71b9e3-b996-4960-b6a6-242976377980',
     });
   }
 
@@ -151,21 +152,29 @@ class _CreateEventViewState extends State<CreateEventView> {
                         String uniqueFileName =
                             DateTime.now().millisecondsSinceEpoch.toString();
 
-                        Reference referenceRoot =
-                            FirebaseStorage.instance.ref();
-                        Reference referenceDirImages =
-                            referenceRoot.child('images');
-                        Reference referenceImageToUpload =
-                            referenceDirImages.child(uniqueFileName);
+                        // Reference referenceRoot =
+                        //     FirebaseStorage.instance.ref();
+                        // Reference referenceDirImages =
+                        //     referenceRoot.child('images');
+                        // Reference referenceImageToUpload =
+                        //     referenceDirImages.child(uniqueFileName);
 
-                        try {
-                          await referenceImageToUpload
-                              .putFile(File(file.path)); //Store the file
-                          imageUrl = await referenceImageToUpload
-                              .getDownloadURL(); //Success: get the download URL
-                        } catch (error) {
-                          //Some error occurred
-                        }
+                        // try {
+                        //   await referenceImageToUpload
+                        //       .putFile(File(file.path)); //Store the file
+                        //   imageUrl = await referenceImageToUpload
+                        //       .getDownloadURL(); //Success: get the download URL
+                        // } catch (error) {
+                        //   //Some error occurred
+                        // }
+                        FirebaseStorage storage = FirebaseStorage.instance;
+                        Reference ref = storage
+                            .ref()
+                            .child("image" + DateTime.now().toString());
+                        UploadTask uploadTask = ref.putFile(File(file.path));
+                        uploadTask.then((res) {
+                          imageUrl = res.ref.getDownloadURL() as String;
+                        });
                       },
                       tooltip: 'Upload an image',
                     ),
